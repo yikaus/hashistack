@@ -1,0 +1,38 @@
+aws_region = "us-east-1"
+key_name = "yourkey"
+#Must be 3 zones in this example
+availability_zones = "us-east-1b,us-east-1c,us-east-1d"
+vpc_cidr_block = "172.31.0.0/16"
+#debian 8
+aws_amis = {
+  "us-east-1" = "ami-116d857a"
+}
+#fixed Ip , don't use other value
+server_ips = {
+  "0" = "172.31.0.10"
+  "1" = "172.31.0.20"
+  "2" = "172.31.0.35"
+}
+serverlist = "\"172.31.0.10\",\"172.31.0.20\",\"172.31.0.35\""
+
+
+#only 1 and 3 is valid 
+server_size = "3"
+
+server_instance_type = "t2.micro"
+client_instance_type = "t2.large"
+asg_min = "1"
+asg_max = "1"
+asg_desired = "1"
+
+#get my ip : dig +short myip.opendns.com @resolver1.opendns.com
+#update below 
+my_ip = "x.x.x.x/32"
+
+###### IP setup in this example####
+#client us-east-1b 172.31.1.0/24
+#client us-east-1c 172.31.2.0/24
+#client us-east-1e 172.31.3.0/24
+#server us-east-1b 172.31.0.0/30
+#server us-east-1c 172.31.0.4/30
+#server us-east-1d 172.31.0.8/30
