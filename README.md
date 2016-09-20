@@ -30,6 +30,13 @@ terraform apply -var-file=dev.tfvars.example
 Run two system jobs
 ```
 export NOMAD_ADDR=http://<public ip of any of server>:4646
+```
+make sure nodes are all ready
+
+`nomad node-status`
+
+As there is an issue with memory.limit_in_bytes issue on debian8 , I add reboot in userdata , it will make node up become slow as it needs reboot for the first time . If you choose ubuntu or other host os , you can just remove fix from [client.tpl](terraform/client.tpl) 
+```
 cd jobs
 nomad run consul.nomad
 nomad run fabio.nomad
