@@ -7,7 +7,7 @@ This repo is inspired by [kelseyhightower/hashiconf-eu-2016](https://github.com/
 1 VPC
 3 server subnet over 3 aws zone
 3 client subnet over 3 aws zone
-1 or 3 server , 3 servers on each zone if it is 3 servers
+1 or 3 servers , 1 server on each zone if it is 3 servers
 1 autoscaling group to  nomad client/agents , user can defined ASG size for nomad
 ```
 Above subnets are all public and only accessed from your desktop public ip , you need setup your ip in dev.tfvars.example
