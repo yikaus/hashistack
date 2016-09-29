@@ -3,3 +3,4 @@
 *.tfstate.backup*
 *.vars
 *.tfvars
+*.zip

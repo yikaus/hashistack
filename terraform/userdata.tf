@@ -3,7 +3,7 @@ data "template_file" "client" {
     template = "${file("client.tpl")}"
     vars {
         region = "${var.aws_region}"
-        serverlist = "${var.serverlist}"
+        domain = "${var.privateDNS}"
     }
 }
 
@@ -23,8 +23,7 @@ data "template_file" "server" {
     template = "${file("server.tpl")}"
     vars {
         region = "${var.aws_region}"
-        server_size = "${var.server_size}"
-        serverlist = "${var.serverlist}"
+        domain = "${var.privateDNS}"
     }
 }
 

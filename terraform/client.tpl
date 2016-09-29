@@ -20,7 +20,7 @@ log_level = "INFO"
 data_dir = "/var/lib/nomad"
 client {
 	enabled = true
-	servers = [${serverlist}]
+	servers = [s1.${domain},s2.${domain},s3.${domain}]
 	options {
         "driver.raw_exec.enable" = "1"
   }

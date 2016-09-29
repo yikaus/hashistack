@@ -17,11 +17,6 @@ variable "server_ips" {
   }
 }
 
-
-variable "serverlist" {
-  description = "serverlist"
-}
-
 variable "vpc_cidr_block" {
   description = "VPC IP Range"
 }
@@ -32,10 +27,6 @@ variable "availability_zones" {
 
 variable "key_name" {
   description = "Name of AWS key pair"
-}
-
-variable "server_size" {
-  description = "server size in autoscaling group"
 }
 
 variable "asg_min" {
@@ -56,6 +47,10 @@ variable "server_instance_type" {
 
 variable "client_instance_type" {
   description = "client instance type"
+}
+
+variable "privateDNS" {
+  description = "private dns name for serverhost"
 }
 
 variable "my_ip" {
