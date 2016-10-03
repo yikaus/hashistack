@@ -9,7 +9,7 @@ data "template_file" "client" {
 
 
 data "template_cloudinit_config" "clientconfig" {
-  gzip          = true
+  gzip          = false
   base64_encode = false
   
   part {
@@ -28,7 +28,7 @@ data "template_file" "server" {
 }
 
 data "template_cloudinit_config" "serverconfig" {
-  gzip          = true
+  gzip          = false
   base64_encode = false
   part {
     content_type = "text/x-shellscript"
