@@ -5,6 +5,7 @@ resource "aws_autoscaling_group" "server-asg" {
   desired_capacity = "3"
   force_delete = true
   launch_configuration = "${aws_launch_configuration.server-lc.name}"
+  load_balancers       = ["${aws_elb.server-elb.name}"]
   vpc_zone_identifier = ["${aws_subnet.server-subnet.*.id}"]
   tag {
     key = "Name"

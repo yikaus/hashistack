@@ -46,6 +46,8 @@ resource "aws_iam_role_policy_attachment" "apex-lamb-attach" {
 resource "aws_lambda_function" "ddns_lambda" {
     filename = "lambda_function_ddns.zip"
     function_name = "lambda_hashiserver_ddns"
+    runtime = "python2.7"
+    timeout = "15"
     role = "${aws_iam_role.lamb_ddns_role.arn}"
     handler = "main.handle"
     source_code_hash = "${base64sha256(file("lambda_function_ddns.zip"))}"

@@ -20,7 +20,7 @@ data_dir = "/var/lib/nomad"
 server {
     enabled = true
     bootstrap_expect = 3
-    retry_join = [s1.${domain},s2.${domain},s3.${domain}]
+    retry_join = ["s1.${domain}","s2.${domain}","s3.${domain}"]
 }
 EOF
 
@@ -46,16 +46,16 @@ unzip consul_0.6.4_linux_amd64.zip -d /usr/local/bin
 rm consul_0.6.4_linux_amd64.zip
 
 cat <<EOF > /etc/consul
-  {
-    "data_dir": "/var/lib/consul",
-    "log_level": "DEBUG",
-    "server": true,
-    "bind_addr": "0.0.0.0",
-    "client_addr": "0.0.0.0",
-    "ui_dir": "/var/lib/consul/ui",
-    "bootstrap_expect": 3,
-    "retry_join": [s1.${domain},s2.${domain},s3.${domain}]
-  }
+{
+  "data_dir": "/var/lib/consul",
+  "log_level": "DEBUG",
+  "server": true,
+  "bind_addr": "0.0.0.0",
+  "client_addr": "0.0.0.0",
+  "ui_dir": "/var/lib/consul/ui",
+  "bootstrap_expect": 3,
+  "retry_join": ["s1.${domain}","s2.${domain}","s3.${domain}"]
+}
 EOF
 
 cat <<EOF > /lib/systemd/system/consul.service
@@ -63,7 +63,7 @@ cat <<EOF > /lib/systemd/system/consul.service
 Description=consul
 Documentation=https://consul.io/docs/
 [Service]
-ExecStart=/usr/local/bin/consul -config-file /etc/consul
+ExecStart=/usr/local/bin/consul agent -config-file /etc/consul -ui
 ExecReload=/bin/kill -HUP \$MAINPID
 LimitNOFILE=65536
 [Install]
