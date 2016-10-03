@@ -52,7 +52,6 @@ cat <<EOF > /etc/consul
   "server": true,
   "bind_addr": "0.0.0.0",
   "client_addr": "0.0.0.0",
-  "ui_dir": "/var/lib/consul/ui",
   "bootstrap_expect": 3,
   "retry_join": ["s1.SERVER_DOMAIN","s2.SERVER_DOMAIN","s3.SERVER_DOMAIN"]
 }

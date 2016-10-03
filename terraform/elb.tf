@@ -1,6 +1,6 @@
 resource "aws_elb" "server-elb" {
   name = "server-elb"
-
+  subnets = ["${aws_subnet.server-subnet.*.id}"]
 # consul port
   listener {
     instance_port     = 8500
