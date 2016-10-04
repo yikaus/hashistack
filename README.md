@@ -54,7 +54,7 @@ vault auth <root-token>
 ```
 Run two system jobs
 ```
-export NOMAD_ADDR=<CONSUL_UI_ADDR>
+export NOMAD_ADDR=<NOMAD_ADDR>
 ```
 make sure nodes are all ready
 
