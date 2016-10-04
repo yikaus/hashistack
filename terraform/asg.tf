@@ -29,22 +29,22 @@ resource "aws_launch_configuration" "server-lc" {
   key_name = "${var.key_name}"
 }
 
-// resource "aws_autoscaling_group" "client-asg" {
-//   #availability_zones = ["${split(",", var.availability_zones)}"]
-//   depends_on = ["aws_autoscaling_group.server-asg"]
-//   name = "client-asg"
-//   max_size = "${var.asg_max}"
-//   min_size = "${var.asg_min}"
-//   desired_capacity = "${var.asg_desired}"
-//   force_delete = true
-//   launch_configuration = "${aws_launch_configuration.client-lc.name}"
-//   vpc_zone_identifier = ["${aws_subnet.client-subnet.*.id}"]
-//   tag {
-//     key = "Name"
-//     value = "client-host"
-//     propagate_at_launch = "true"
-//   }
-// }
+resource "aws_autoscaling_group" "client-asg" {
+  #availability_zones = ["${split(",", var.availability_zones)}"]
+  depends_on = ["aws_autoscaling_group.server-asg"]
+  name = "client-asg"
+  max_size = "${var.asg_max}"
+  min_size = "${var.asg_min}"
+  desired_capacity = "${var.asg_desired}"
+  force_delete = true
+  launch_configuration = "${aws_launch_configuration.client-lc.name}"
+  vpc_zone_identifier = ["${aws_subnet.client-subnet.*.id}"]
+  tag {
+    key = "Name"
+    value = "client-host"
+    propagate_at_launch = "true"
+  }
+}
 
 resource "aws_launch_configuration" "client-lc" {
   name = "client-lc"
