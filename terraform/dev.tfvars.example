@@ -16,7 +16,7 @@ asg_desired = "1"
 privateDNS = "dev.local"
 
 #get my ip : dig +short myip.opendns.com @resolver1.opendns.com
-my_ip = "1.136.96.245/32"
+my_ip = "<your_IP_here>/32"
 
 ###### IP setup####
 #client us-east-1b 172.31.1.0/24
