@@ -5,9 +5,9 @@ apt-get install -qq curl unzip
 
 #enable nomad
 mkdir -p /var/lib/nomad
-wget https://releases.hashicorp.com/nomad/0.4.1/nomad_0.4.1_linux_amd64.zip
-unzip nomad_0.4.1_linux_amd64.zip -d /usr/local/bin
-rm nomad_0.4.1_linux_amd64.zip
+wget https://releases.hashicorp.com/nomad/NOMAD_VERSION/nomad_NOMAD_VERSION_linux_amd64.zip
+unzip nomad_NOMAD_VERSION_linux_amd64.zip -d /usr/local/bin
+rm nomad_NOMAD_VERSION_linux_amd64.zip
 
 private_ip=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 

@@ -56,3 +56,13 @@ variable "privateDNS" {
 variable "my_ip" {
   description = "my static ip"
 }
+
+variable "version" {
+  type    = "map"
+  default = {
+    nomad = "0.5.0"
+    consul = "0.7.1"
+    vault = "0.6.2"
+    hashistack = "0.2.0"
+  }
+}
