@@ -11,7 +11,7 @@ job "fabio" {
     task "fabio" {
       driver = "exec"
       config {
-        command = "fabio"
+        command = "fabio-1.3.4-go1.7.3-linux_amd64"
       }
 
       artifact {
