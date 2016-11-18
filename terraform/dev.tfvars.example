@@ -7,6 +7,13 @@ aws_amis = {
   "us-east-1" = "ami-116d857a"
 }
 
+version = {
+  nomad = "0.5.0"
+  consul = "0.7.1"
+  vault = "0.6.2"
+  hashistack = "nomad0.5.0"
+}
+
 server_instance_type = "t2.nano"
 client_instance_type = "t2.nano"
 asg_min = "1"

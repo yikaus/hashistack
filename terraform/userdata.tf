@@ -4,7 +4,8 @@ data "template_file" "client" {
     vars {
         region = "${var.aws_region}"
         domain = "${var.privateDNS}"
-        nomad_version = "${lookup("version", "nomad")}"
+        nomad_version = "${lookup(var.version, "nomad")}"
+        release = "${lookup(var.version, "hashistack")}"
     }
 }
 
@@ -25,9 +26,10 @@ data "template_file" "server" {
     vars {
         region = "${var.aws_region}"
         domain = "${var.privateDNS}"
-        nomad_version = "${lookup("version", "nomad")}"
-        vault_version = "${lookup("version", "vault")}"
-        consul_version = "${lookup("version", "consul")}"
+        nomad_version = "${lookup(var.version, "nomad")}"
+        vault_version = "${lookup(var.version, "vault")}"
+        consul_version = "${lookup(var.version, "consul")}"
+        release = "${lookup(var.version, "hashistack")}"
         
     }
 }

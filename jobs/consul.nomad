@@ -12,13 +12,13 @@ job "consul" {
       driver = "exec"
       config {
         command = "consul"
-        args = ["agent", "-data-dir", "/var/lib/consul", "-join", "172.31.0.10","-join", "172.31.0.20","-join", "172.31.0.35"] 
+        args = ["agent", "-data-dir", "/var/lib/consul", "-join", "s1.dev.local","-join", "s2.dev.local","-join", "s3.dev.local"]
       }
 
       artifact {
         source = "https://releases.hashicorp.com/consul/0.7.1/consul_0.7.1_linux_amd64.zip"
         options {
-          checksum = "sha256:abdf0e1856292468e2c9971420d73b805e93888e006c76324ae39416edcf0627"
+          checksum = "sha256:5dbfc555352bded8a39c7a8bf28b5d7cf47dec493bc0496e21603c84dfe41b4b"
         }
       }
 
