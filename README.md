@@ -10,7 +10,36 @@ This repo is inspired by [kelseyhightower/hashiconf-eu-2016](https://github.com/
 1 autoscaling group cross 3 aws zone and 3 server instances in each zone , fixed size
 1 autoscaling group to  nomad client/agents , user can defined ASG size for nomad
 ```
-Above subnets are all public and only accessed from your desktop public ip , you need setup your ip in dev.tfvars.example
+Above subnets are all public and only accessed from your desktop public ip , you need setup your ip in `dev.tfvars.example` , version also can be customized, see below 
+
+```
+aws_region = "us-east-1"
+key_name = "test.key"
+availability_zones = "us-east-1b,us-east-1c,us-east-1d"
+vpc_cidr_block = "172.31.0.0/16"
+#debian 8
+aws_amis = {
+  "us-east-1" = "ami-116d857a"
+}
+
+version = {
+  nomad = "0.5.0"
+  consul = "0.7.1"
+  vault = "0.6.2"
+  hashistack = "0.2.0"
+}
+
+server_instance_type = "t2.nano"
+client_instance_type = "t2.nano"
+asg_min = "1"
+asg_max = "1"
+asg_desired = "1"
+
+privateDNS = "dev.local"
+
+#get my ip : dig +short myip.opendns.com @resolver1.opendns.com
+my_ip = "<your_IP_here>/32"
+```
 
 ### Bootstrap
 clone this repo
